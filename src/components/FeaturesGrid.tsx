@@ -1,4 +1,4 @@
-```javascript
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Clapperboard, Palette } from 'lucide-react';
@@ -81,8 +81,3 @@ const FeaturesGrid: React.FC = () => {
 };
 
 export default FeaturesGrid;
-                            3D Visual Design <br /> Tự Động Hóa
-                        </h3>
-                        <p className="text-lg text-mid-gray mb-8 font-body leading-relaxed">
-                            Style signature của LongBest: 3D minimalist, high-tech, <br />
-                            pop-color backgrounds hoàn hảo cho social media.
