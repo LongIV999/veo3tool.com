@@ -7,7 +7,7 @@ import { CalendarProvider } from './context/CalendarContext';
 function App() {
   return (
     <CalendarProvider>
-      <Router>
+      <Router basename="/long">
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/calendar" element={<CalendarPage />} />
