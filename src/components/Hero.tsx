@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import InfiniteLoop from './InfiniteLoop';
+import { usePopup } from '../context/PopupContext';
 
 const Hero: React.FC = () => {
+    const { openEmailPopup } = usePopup();
 
     return (
         <section className="hero hero-portal bg-dark-primary text-light-primary">
@@ -40,7 +42,7 @@ const Hero: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto"
                 >
-                    <button className="btn-primary w-full sm:w-auto">
+                    <button onClick={openEmailPopup} className="btn-primary w-full sm:w-auto">
                         Bắt đầu miễn phí
                     </button>
                     <button className="btn-secondary w-full sm:w-auto">

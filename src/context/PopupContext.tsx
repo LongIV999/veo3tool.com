@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, type ReactNode } from 'react';
 import EmailPopup from '../components/EmailPopup';
 import Toast, { type ToastType } from '../components/Toast';
+import { submitEmailToGoogleSheets } from '../services/googleSheets';
 
 interface ToastState {
     message: string;
@@ -60,12 +61,27 @@ export const PopupProvider: React.FC<PopupProviderProps> = ({ children }) => {
         }));
     };
 
-    const handleEmailSubmit = (email: string) => {
-        // Here you can add your API call to save the email
-        console.log('Email submitted:', email);
+    const handleEmailSubmit = async (email: string, source: string = 'Popup') => {
+        try {
+            // Submit email to Google Sheets
+            const result = await submitEmailToGoogleSheets(email, source);
 
-        // Show success toast
-        showToast('Cảm ơn bạn! Chúng tôi sẽ liên hệ sớm nhất.', 'success');
+            if (result.status === 'success') {
+                // Show success toast
+                showToast('🎉 Cảm ơn bạn! Chúng tôi sẽ liên hệ sớm nhất.', 'success');
+                console.log('✅ Email saved to Google Sheets:', email);
+            } else {
+                // Show error toast but still log the email locally
+                showToast('⚠️ Đã có lỗi xảy ra, nhưng chúng tôi đã ghi nhận email của bạn.', 'info');
+                console.error('❌ Google Sheets error:', result.message);
+                console.log('📧 Email (saved locally):', email);
+            }
+        } catch (error) {
+            // Fallback: show error toast but log email
+            showToast('⚠️ Đã có lỗi xảy ra, vui lòng thử lại sau.', 'error');
+            console.error('❌ Submit error:', error);
+            console.log('📧 Email (not saved):', email);
+        }
     };
 
     return (

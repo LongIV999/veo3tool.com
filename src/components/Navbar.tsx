@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { usePopup } from '../context/PopupContext';
 
 const Navbar: React.FC = () => {
     const [isMobileOpen, setIsMobileOpen] = useState(false);
     const [hoveredPath, setHoveredPath] = useState<string | null>(null);
     const location = useLocation();
+    const { openEmailPopup } = usePopup();
 
     const isHome = location.pathname === '/';
 
@@ -75,13 +77,13 @@ const Navbar: React.FC = () => {
                         })}
                     </div>
 
-                    <a
-                        href="#pricing"
+                    <button
+                        onClick={openEmailPopup}
                         className="group flex items-center gap-2 px-5 py-2.5 bg-light-primary text-dark-primary text-xs font-bold tracking-widest uppercase rounded-lg hover:bg-orange-accent hover:text-light-primary hover:shadow-[0_0_15px_rgba(217,119,87,0.4)] transition-all duration-300"
                     >
                         <span>Start Building</span>
                         <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                    </a>
+                    </button>
                 </div>
 
                 {/* Mobile Trigger */}
@@ -124,13 +126,15 @@ const Navbar: React.FC = () => {
                                         </a>
                                     )
                                 ))}
-                                <a
-                                    href="#pricing"
-                                    onClick={() => setIsMobileOpen(false)}
+                                <button
+                                    onClick={() => {
+                                        setIsMobileOpen(false);
+                                        openEmailPopup();
+                                    }}
                                     className="mt-4 flex items-center justify-center gap-2 w-full py-4 bg-orange-accent text-light-primary font-bold uppercase tracking-widest rounded-lg"
                                 >
                                     Start Building
-                                </a>
+                                </button>
                             </div>
                         </motion.div>
                     )}

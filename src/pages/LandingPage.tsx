@@ -5,6 +5,7 @@ import FeaturesGrid from '../components/FeaturesGrid';
 import Workflow from '../components/Workflow';
 import SocialProof from '../components/SocialProof';
 import Knowledge from '../components/Knowledge';
+import NewsSection from '../components/NewsSection';
 import Pricing from '../components/Pricing';
 import FinalCTA from '../components/FinalCTA';
 import Footer from '../components/Footer';
@@ -18,6 +19,7 @@ const LandingPage = () => {
             <Workflow />
             <SocialProof />
             <Knowledge />
+            <NewsSection />
             <Pricing />
             <FinalCTA />
             <Footer />
