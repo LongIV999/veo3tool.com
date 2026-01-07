@@ -16,7 +16,7 @@ const FeaturesGrid: React.FC = () => {
                         transition={{ duration: 0.6 }}
                         className="feature-card veo3 group"
                     >
-                        <div className="text-5xl mb-6">🎬</div>
+
                         <div className="text-xs font-bold tracking-widest text-mid-gray uppercase mb-2">VEO 3</div>
                         <h3 className="text-3xl font-heading font-bold mb-4 text-white group-hover:text-orange-accent transition-colors">
                             Video Generation <br /> Không Giới Hạn
@@ -49,7 +49,7 @@ const FeaturesGrid: React.FC = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="feature-card nanobana group"
                     >
-                        <div className="text-5xl mb-6">🎨</div>
+
                         <div className="text-xs font-bold tracking-widest text-mid-gray uppercase mb-2">NANO BANANA PRO</div>
                         <h3 className="text-3xl font-heading font-bold mb-4 text-white group-hover:text-blue-accent transition-colors">
                             3D Visual Design <br /> Tự Động Hóa
