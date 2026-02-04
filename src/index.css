@@ -4,6 +4,12 @@
 /* Import JetBrains Mono - Vietnamese Support */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
+/* Import Black Han Sans - Neo-Brutalist Korean font with better diacritic support */
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+/* Import Barlow - Vietnamese Support, Ultra Bold */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,202 +17,244 @@
 @layer base {
   :root {
     /* ============================================
-     COLOR SYSTEM
+     COLOR SYSTEM (AURORA UI + AI TECH)
      ============================================ */
 
     /* Base Colors */
-    --color-bg-dark: #141413;
-    /* Dark chocolate brown */
-    --color-bg-light: #FAF9F5;
-    /* Off-white cream */
-    --color-bg-gray: #E8E6DC;
-    /* Light warm gray */
+    --color-bg-dark: #0A0E27;
+    /* Midnight Blue */
+    --color-bg-light: #F8FAFC;
+    /* Slate 50 */
+    --color-bg-glass: rgba(10, 14, 39, 0.7);
+
+    /* Aurora Spectrum */
+    --color-aurora-cyan: #00FFFF;
+    --color-aurora-magenta: #FF1493;
+    --color-aurora-purple: #8B00FF;
+    --color-aurora-blue: #0080FF;
+
+    /* Primary Accent (AI Tech) */
+    --color-primary: #6366F1;
+    /* AI Purple */
+    --color-primary-glow: #A78BFA;
 
     /* Text Colors */
     --color-text-primary: #FFFFFF;
-    /* Pure white */
-    --color-text-dark: #141413;
-    /* Almost black */
-    --color-text-body: #A8A8A8;
-    /* Medium gray */
-    --color-text-muted: #6B6B6B;
-    /* Dark gray */
+    --color-text-body: #94A3B8;
+    /* Slate 400 */
+    --color-text-muted: #64748B;
+    /* Slate 500 */
+    --color-text-dark: #0F172A;
+    /* Slate 900 */
 
-    /* Accent Colors */
-    --color-accent-coral: #C77B5E;
-    /* Warm coral */
-    --color-accent-orange: #D97757;
-    /* LongBest orange */
-    --color-accent-blue: #6A9BCC;
-    /* Cool blue */
-    --color-accent-green: #788C5D;
-    /* Sage green */
+    /* Functional Colors */
+    --color-success: #22C55E;
+    --color-warning: #F59E0B;
+    --color-error: #EF4444;
 
-    /* Button Colors */
-    --color-button-fill: #B8725C;
-    /* Coral button */
-    --color-button-text: #1A1A1A;
-    /* Dark text */
-    --color-button-hover: #A56450;
-    /* Darker coral */
-
-    /* State Colors */
-    --color-success: #4CAF50;
-    --color-warning: #FF9800;
-    --color-error: #F44336;
-    --color-info: #2196F3;
-
-    /* Legacy Variables Mapping (for backward compatibility) */
+    /* Legacy Mappings */
     --dark-primary: var(--color-bg-dark);
     --light-primary: var(--color-bg-light);
-    --orange-accent: var(--color-accent-orange);
-    --mid-gray: var(--color-text-body);
-    --light-gray: var(--color-bg-light);
-    --blue-accent: var(--color-accent-blue);
-    --green-accent: var(--color-accent-green);
+    --mid-gray: var(--color-text-muted);
 
     /* ============================================
      TYPOGRAPHY SYSTEM
      ============================================ */
 
     /* Font Families */
-    --font-headline: 'Inter', 'System-Vietnamese', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-body: 'Inter', 'System-Vietnamese', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-mono: 'JetBrains Mono', 'Courier New', 'Consolas', monospace;
+    --font-headline: 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
 
     /* Font Weights */
     --weight-regular: 400;
     --weight-medium: 500;
-    --weight-semibold: 600;
     --weight-bold: 700;
-    --weight-extrabold: 800;
-    --weight-black: 900;
 
     /* ============================================
      RESPONSIVE FONT SIZES
      ============================================ */
 
-    /* Hero / Display - Largest headlines */
-    --text-hero: clamp(48px, 10vw, 140px);
+    /* Hero / Display */
+    --text-hero: clamp(48px, 10vw, 120px);
     --text-hero-mobile: clamp(36px, 8vw, 64px);
 
-    /* H1 - Page titles */
-    --text-h1: clamp(40px, 6vw, 72px);
-    --text-h1-mobile: clamp(32px, 7vw, 48px);
+    /* Headings */
+    --text-h1: clamp(40px, 6vw, 64px);
+    --text-h2: clamp(32px, 5vw, 48px);
+    --text-h3: clamp(24px, 4vw, 36px);
+    --text-h4: clamp(20px, 3vw, 28px);
 
-    /* H2 - Section titles */
-    --text-h2: clamp(32px, 5vw, 56px);
-    --text-h2-mobile: clamp(28px, 6vw, 40px);
-
-    /* H3 - Subsection titles */
-    --text-h3: clamp(24px, 4vw, 40px);
-    --text-h3-mobile: clamp(22px, 5vw, 32px);
-
-    /* H4 - Card titles */
-    --text-h4: clamp(20px, 3vw, 32px);
-    --text-h4-mobile: clamp(18px, 4vw, 24px);
-
-    /* H5 - Small headings */
-    --text-h5: clamp(18px, 2.5vw, 24px);
-    --text-h5-mobile: clamp(16px, 3vw, 20px);
-
-    /* H6 - Tiny headings */
-    --text-h6: clamp(16px, 2vw, 20px);
-    --text-h6-mobile: clamp(14px, 2.5vw, 18px);
-
-    /* Body Text Sizes */
-    --text-body-xl: 22px;
-    /* Lead paragraphs */
-    --text-body-lg: 20px;
-    /* Large body */
-    --text-body: 18px;
-    /* Standard body */
-    --text-body-sm: 16px;
-    /* Small body */
-    --text-body-xs: 14px;
-    /* Extra small */
-
-    /* UI Elements */
-    --text-button: 16px;
-    /* Buttons */
-    --text-input: 16px;
-    /* Form inputs */
-    --text-label: 14px;
-    /* Form labels */
-    --text-caption: 12px;
-    /* Captions, meta info */
-    --text-micro: 10px;
-    /* Tiny labels */
-
-    /* Technical / Code */
-    --text-code: 16px;
-    /* Inline code */
-    --text-code-block: 14px;
-    /* Code blocks */
-    --text-terminal: 18px;
-    /* Terminal output */
-
+    /* Body */
+    --text-body-lg: 1.125rem;
+    --text-body: 1rem;
+    --text-body-sm: 0.875rem;
 
     /* ============================================
-     LINE HEIGHTS
+     SPACING & LAYOUT
+     ============================================ */
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 8rem;
+
+    --radius-sm: 0.5rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+  }
+}
+
+/* ============================================
+   AURORA UI UTILITIES
+   ============================================ */
+
+@layer utilities {
+
+  /* ============================================
+     NEO-BRUTALIST UTILITIES
      ============================================ */
 
-    --leading-none: 1.0;
-    /* Tight headlines */
-    --leading-tight: 1.1;
-    /* Hero text */
-    --leading-snug: 1.25;
-    /* Large headings */
-    --leading-normal: 1.5;
-    /* Body text */
-    --leading-relaxed: 1.625;
-    /* Comfortable reading */
-    --leading-loose: 1.75;
-    /* Extra spacing */
-
-
-    /* ============================================
-     LETTER SPACING
-     ============================================ */
-
-    --tracking-tighter: -0.05em;
-    /* -5% */
-    --tracking-tight: -0.025em;
-    /* -2.5% */
-    --tracking-normal: 0em;
-    /* 0% */
-    --tracking-wide: 0.025em;
-    /* 2.5% */
-    --tracking-wider: 0.05em;
-    /* 5% */
-    --tracking-widest: 0.1em;
-    /* 10% */
-
-
-    /* ============================================
-     SPACING SCALE
-     ============================================ */
-
-    --space-xs: 8px;
-    --space-sm: 16px;
-    --space-md: 24px;
-    --space-lg: 48px;
-    --space-xl: 96px;
-    --space-xxl: 144px;
-
-
-    /* ============================================
-     RESPONSIVE BREAKPOINTS
-     ============================================ */
-
-    --breakpoint-xs: 375px;
-    --breakpoint-sm: 640px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 1024px;
-    --breakpoint-xl: 1280px;
-    --breakpoint-xxl: 1536px;
+  /* Grid Background */
+  .bg-brutal-grid {
+    background-color: #000000;
+    background-image:
+      linear-gradient(#333333 1px, transparent 1px),
+      linear-gradient(90deg, #333333 1px, transparent 1px);
+    background-size: 50px 50px;
   }
 
+  /* Neon Text Glows */
+  .text-neon-lime {
+    color: #39FF14;
+    text-shadow: 0 0 10px #39FF14, 0 0 20px #39FF14, 0 0 30px #39FF14;
+  }
+
+  .text-neon-cyan {
+    color: #00FFFF;
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;
+  }
+
+  .text-neon-pink {
+    color: #FF10F0;
+    text-shadow: 0 0 10px #FF10F0, 0 0 20px #FF10F0, 0 0 30px #FF10F0;
+  }
+
+  .text-neon-yellow {
+    color: #FFFF00;
+    text-shadow: 0 0 10px #FFFF00, 0 0 20px #FFFF00, 0 0 30px #FFFF00;
+  }
+
+  /* Brutal Card Styles */
+  .brutal-card {
+    background: #FFFFFF;
+    border: 4px solid #000000;
+    box-shadow: 8px 8px 0px #000000;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .brutal-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px #000000;
+  }
+
+  .brutal-card-dark {
+    background: #000000;
+    border: 4px solid #39FF14;
+    box-shadow: 8px 8px 0px #39FF14;
+  }
+
+  .brutal-card-dark:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px #39FF14;
+  }
+
+  /* ============================================
+     AURORA UTILITIES (LEGACY)
+     ============================================ */
+
+  /* Aurora Gradient Background */
+  .bg-aurora {
+    background: linear-gradient(135deg,
+        #0A0E27 0%,
+        #1e1b4b 25%,
+        #312e81 50%,
+        #1e1b4b 75%,
+        #0A0E27 100%);
+    background-size: 400% 400%;
+    animation: auroraGradient 15s ease infinite;
+  }
+
+  /* Mesh Gradient Overlay */
+  .mesh-gradient {
+    background:
+      radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.2) 0%, transparent 50%);
+  }
+
+  /* Glass Card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(99, 102, 241, 0.2);
+    box-shadow:
+      0 12px 40px rgba(99, 102, 241, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Neon Glow Text */
+  .text-glow {
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+  }
+
+  .text-glow-magenta {
+    text-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, #6366F1 0%, #EC4899 50%, #06B6D4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-aurora {
+    background: linear-gradient(to right, #00FFFF, #6366F1, #FF1493);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Cinematic Grain Overlay */
+  .bg-noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+}
+
+@layer base {
   /* ============================================
      BASE STYLES
      ============================================ */
@@ -1049,10 +1097,7 @@ h3:lang(vi) {
   color: var(--light-primary);
 }
 
-/* Features Grid Split Specifics from Layout.md */
-.features-split {
-  /* Inherits defaults */
-}
+/* Features Grid Split Specifics removed */
 
 /* Ensure the text colors inside feature cards (light theme) are correct */
 .feature-card h3 {

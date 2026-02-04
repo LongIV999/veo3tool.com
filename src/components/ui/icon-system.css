@@ -1,0 +1,82 @@
+/**
+ * Icon Design System - CSS Variables & Tokens
+ * Based on Icon Design Cheatsheet principles
+ *
+ * Grid: 24x24
+ * Icon Area: 20x20 (centered)
+ * Safe Area: 2px margin on all sides
+ */
+
+:root {
+  /* Icon Sizes - Following the cheatsheet scale */
+  --icon-xs: 16px;      /* Supporting elements */
+  --icon-sm: 24px;      /* Default, buttons, interactive */
+  --icon-md: 32px;      /* Buttons, interactive */
+  --icon-lg: 40px;      /* Buttons, interactive */
+  --icon-xl: 56px;      /* Visuals, illustrations */
+  --icon-2xl: 80px;     /* Visuals, illustrations */
+  --icon-3xl: 104px;    /* Visuals, illustrations */
+
+  /* Stroke widths for optical balance */
+  --icon-stroke-thin: 1.5px;
+  --icon-stroke-default: 2px;
+  --icon-stroke-thick: 2.5px;
+
+  /* Icon colors */
+  --icon-primary: currentColor;
+  --icon-secondary: #64748b;
+  --icon-muted: #94a3b8;
+  --icon-accent: #3b82f6;
+  --icon-success: #22c55e;
+  --icon-warning: #f59e0b;
+  --icon-error: #ef4444;
+}
+
+/* Icon utility classes */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-xs { width: var(--icon-xs); height: var(--icon-xs); }
+.icon-sm { width: var(--icon-sm); height: var(--icon-sm); }
+.icon-md { width: var(--icon-md); height: var(--icon-md); }
+.icon-lg { width: var(--icon-lg); height: var(--icon-lg); }
+.icon-xl { width: var(--icon-xl); height: var(--icon-xl); }
+.icon-2xl { width: var(--icon-2xl); height: var(--icon-2xl); }
+.icon-3xl { width: var(--icon-3xl); height: var(--icon-3xl); }
+
+/* Color variants */
+.icon-primary { color: var(--icon-primary); }
+.icon-secondary { color: var(--icon-secondary); }
+.icon-muted { color: var(--icon-muted); }
+.icon-accent { color: var(--icon-accent); }
+.icon-success { color: var(--icon-success); }
+.icon-warning { color: var(--icon-warning); }
+.icon-error { color: var(--icon-error); }
+
+/* Icon in buttons */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-icon svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* Stylistic integrity - Consistent visual weight */
+.icon svg {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Optical balance adjustments */
+.icon-balanced {
+  /* Slight scale adjustment for optically balanced icons */
+  transform: scale(1.02);
+}
