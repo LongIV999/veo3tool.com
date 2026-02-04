@@ -6,8 +6,8 @@
 
 interface EmailData {
     email: string;
-    source?: string;
-    userAgent?: string;
+    videoThumbnail?: string;
+    metadata?: string | object;
 }
 
 interface GoogleSheetsResponse {
@@ -17,17 +17,17 @@ interface GoogleSheetsResponse {
 
 // IMPORTANT: Replace this with your actual Google Apps Script Web App URL
 // Get this URL after deploying your Apps Script (Deploy → New deployment → Web app)
-const GOOGLE_SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby8Ql4REhhZjiKt-dPD1rxE4epLL-W24El7ZhJTFFwiCcRMQpYu6_WyJfKA-X8NB6SX/exec';
+const GOOGLE_SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzZK_OvtFl2HtqaRIQBjq8wz6N6p7FMJWo-58_I5k2lLzhX4ttsuxBAbilYTCgJAxnc/exec';
 
 /**
  * Submit email to Google Sheets
  * @param email - User's email address
- * @param source - Source of the submission (e.g., 'Hero', 'Navbar', 'Pricing')
  * @returns Promise with response data
  */
 export const submitEmailToGoogleSheets = async (
     email: string,
-    source: string = 'Unknown'
+    videoThumbnail?: string,
+    metadata?: object
 ): Promise<GoogleSheetsResponse> => {
     try {
         // Validate email
@@ -35,12 +35,14 @@ export const submitEmailToGoogleSheets = async (
             throw new Error('Email is required');
         }
 
-        // Prepare data
+        // Prepare data matching Google Sheet columns (Timestamp, Email, Video Thumbnail, Metadata)
         const data: EmailData = {
             email: email.trim(),
-            source,
-            userAgent: navigator.userAgent
+            videoThumbnail: videoThumbnail || '',
+            metadata: metadata ? JSON.stringify(metadata) : ''
         };
+
+        console.log('Sending data to Google Sheets:', data);
 
         // Send POST request to Google Apps Script Web App
         await fetch(GOOGLE_SHEETS_WEB_APP_URL, {

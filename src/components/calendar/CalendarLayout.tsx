@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Calendar as CalendarIcon, FileText, CheckSquare } from 'lucide-react';
+import { ArrowLeftIcon, CalendarIcon, FileTextIcon, CheckSquareIcon } from '../ui/icons';
 
 interface CalendarLayoutProps {
     children: React.ReactNode;
@@ -13,7 +13,7 @@ const CalendarLayout = ({ children }: CalendarLayoutProps) => {
             <aside className="w-16 md:w-64 border-r border-[#333] flex flex-col bg-[#0a0a0a]">
                 <div className="p-4 border-b border-[#333] flex items-center gap-2">
                     <Link to="/" className="text-sm hover:text-accent-orange transition-colors flex items-center gap-2">
-                        <ArrowLeft className="w-4 h-4" />
+                        <ArrowLeftIcon className="w-4 h-4" />
                         <span className="hidden md:inline">Back</span>
                     </Link>
                 </div>
@@ -26,11 +26,11 @@ const CalendarLayout = ({ children }: CalendarLayoutProps) => {
                             <span className="hidden md:inline">Calendar</span>
                         </button>
                         <button className="w-full flex items-center gap-3 p-2 hover:bg-[#1a1a1a] rounded transition-colors text-left text-text-secondary">
-                            <CheckSquare className="w-4 h-4" />
+                            <CheckSquareIcon className="w-4 h-4" />
                             <span className="hidden md:inline">Tasks</span>
                         </button>
                         <button className="w-full flex items-center gap-3 p-2 hover:bg-[#1a1a1a] rounded transition-colors text-left text-text-secondary">
-                            <FileText className="w-4 h-4" />
+                            <FileTextIcon className="w-4 h-4" />
                             <span className="hidden md:inline">Notes</span>
                         </button>
                     </nav>

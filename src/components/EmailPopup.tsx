@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Send, CheckCircle2, Sparkles } from 'lucide-react';
+import { XIcon, MailIcon, SendIcon, CheckCircle2Icon, SparklesIcon } from './ui/icons';
 
 interface EmailPopupProps {
     isOpen: boolean;
@@ -93,7 +93,7 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose, onSubmit }) =>
                                 className="absolute top-6 right-6 z-10 p-2 bg-light-primary/10 hover:bg-light-primary/20 rounded-full transition-colors group"
                                 aria-label="Close popup"
                             >
-                                <X className="w-5 h-5 text-light-primary/70 group-hover:text-light-primary transition-colors" />
+                                <XIcon className="w-5 h-5 text-light-primary/70 group-hover:text-light-primary transition-colors" />
                             </button>
 
                             {/* Content */}
@@ -103,7 +103,7 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose, onSubmit }) =>
                                     <div className="relative">
                                         <div className="absolute inset-0 bg-orange-accent/20 rounded-full blur-xl animate-pulse" />
                                         <div className="relative bg-gradient-to-br from-orange-accent to-orange-600 p-4 rounded-2xl">
-                                            <Sparkles className="w-8 h-8 text-white" />
+                                            <SparklesIcon className="w-8 h-8 text-white" />
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose, onSubmit }) =>
                                         </label>
                                         <div className="relative">
                                             <div className="absolute left-4 top-1/2 -translate-y-1/2 text-light-primary/40">
-                                                <Mail className="w-5 h-5" />
+                                                <MailIcon className="w-5 h-5" />
                                             </div>
                                             <input
                                                 type="email"
@@ -136,11 +136,10 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose, onSubmit }) =>
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
                                                 placeholder="your@email.com"
-                                                className={`w-full pl-12 pr-4 py-4 bg-light-primary/5 border-2 ${
-                                                    errors.email
+                                                className={`w-full pl-12 pr-4 py-4 bg-light-primary/5 border-2 ${errors.email
                                                         ? 'border-red-500 focus:border-red-500'
                                                         : 'border-light-primary/10 focus:border-orange-accent'
-                                                } rounded-xl text-light-primary placeholder:text-light-primary/40 focus:outline-none transition-colors`}
+                                                    } rounded-xl text-light-primary placeholder:text-light-primary/40 focus:outline-none transition-colors`}
                                             />
                                         </div>
                                         {errors.email && (
@@ -158,15 +157,14 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose, onSubmit }) =>
                                                     onChange={(e) => setAgreedToTerms(e.target.checked)}
                                                     className="sr-only"
                                                 />
-                                                <div className={`w-5 h-5 rounded border-2 transition-all ${
-                                                    agreedToTerms
+                                                <div className={`w-5 h-5 rounded border-2 transition-all ${agreedToTerms
                                                         ? 'bg-orange-accent border-orange-accent'
                                                         : errors.terms
                                                             ? 'border-red-500'
                                                             : 'border-light-primary/30 group-hover:border-orange-accent/50'
-                                                }`}>
+                                                    }`}>
                                                     {agreedToTerms && (
-                                                        <CheckCircle2 className="w-5 h-5 text-white -mt-0.5 -ml-0.5" />
+                                                        <CheckCircle2Icon className="w-5 h-5 text-white -mt-0.5 -ml-0.5" />
                                                     )}
                                                 </div>
                                             </div>
@@ -200,7 +198,7 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose, onSubmit }) =>
                                         ) : (
                                             <>
                                                 <span>Bắt Đầu Ngay</span>
-                                                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                                <SendIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                             </>
                                         )}
                                     </button>

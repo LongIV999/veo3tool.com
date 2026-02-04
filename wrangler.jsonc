@@ -1,0 +1,22 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "longbest-landing",
+    "main": "src/worker.ts",
+    "compatibility_date": "2024-09-23",
+    "assets": {
+        "directory": "./dist"
+    },
+    "routes": [
+        {
+            "pattern": "veo3tool.com",
+            "custom_domain": true
+        },
+        {
+            "pattern": "www.veo3tool.com",
+            "custom_domain": true
+        }
+    ],
+    "observability": {
+        "enabled": true
+    }
+}

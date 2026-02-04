@@ -12,7 +12,7 @@ import {
     subMonths,
     isToday
 } from 'date-fns';
-import { ChevronLeft, ChevronRight, Plus } from 'lucide-react';
+import { ChevronLeftIcon, ChevronRightIcon, PlusIcon } from '../ui/icons';
 import { useCalendar } from '../../context/CalendarContext';
 import DayViewDialog from './DayViewDialog';
 
@@ -55,13 +55,13 @@ const MonthView = () => {
                     </h1>
                     <div className="flex items-center bg-[#1a1a1a] rounded-md border border-[#333]">
                         <button onClick={prevMonth} className="p-2 hover:bg-[#333] transition-colors rounded-l-md">
-                            <ChevronLeft className="w-4 h-4" />
+                            <ChevronLeftIcon className="w-4 h-4" />
                         </button>
                         <button onClick={goToToday} className="px-3 py-1 text-xs border-x border-[#333] hover:bg-[#333] transition-colors">
                             Today
                         </button>
                         <button onClick={nextMonth} className="p-2 hover:bg-[#333] transition-colors rounded-r-md">
-                            <ChevronRight className="w-4 h-4" />
+                            <ChevronRightIcon className="w-4 h-4" />
                         </button>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ const MonthView = () => {
 
                                 {/* Quick Add Button (Visible on Hover) */}
                                 <button className="opacity-0 group-hover:opacity-100 p-1 hover:bg-[#333] rounded text-text-secondary transition-all">
-                                    <Plus className="w-3 h-3" />
+                                    <PlusIcon className="w-3 h-3" />
                                 </button>
                             </div>
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, X, AlertCircle, Info } from 'lucide-react';
+import { CheckCircle2Icon, XIcon, AlertCircleIcon, InfoIcon } from './ui/icons';
 
 export type ToastType = 'success' | 'error' | 'info';
 
@@ -30,9 +30,9 @@ const Toast: React.FC<ToastProps> = ({
     }, [isVisible, duration, onClose]);
 
     const icons = {
-        success: CheckCircle2,
-        error: AlertCircle,
-        info: Info
+        success: CheckCircle2Icon,
+        error: AlertCircleIcon,
+        info: InfoIcon
     };
 
     const styles = {
@@ -84,7 +84,7 @@ const Toast: React.FC<ToastProps> = ({
                                 className="absolute top-3 right-3 p-1.5 bg-white/10 hover:bg-white/20 rounded-lg transition-colors group"
                                 aria-label="Close notification"
                             >
-                                <X className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
+                                <XIcon className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
                             </button>
                         </div>
 

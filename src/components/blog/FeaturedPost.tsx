@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Clock, ArrowRight, Star } from 'lucide-react';
+import { ClockIcon, ArrowRightIcon, StarIcon, PlayIcon } from '../ui/icons';
 import type { BlogPost } from '../../types/blog';
 
 interface FeaturedPostProps {
@@ -26,7 +26,7 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
             {/* Featured Badge */}
             <div className="absolute top-6 right-6 z-10">
                 <div className="flex items-center gap-2 bg-orange-accent text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
-                    <Star className="w-4 h-4 fill-white" />
+                    <StarIcon className="w-4 h-4 fill-white" />
                     Featured
                 </div>
             </div>
@@ -62,12 +62,12 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
                     {/* Meta & CTA */}
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                         <div className="flex items-center gap-2 text-sm text-mid-gray">
-                            <Clock className="w-4 h-4" />
+                            <ClockIcon className="w-4 h-4" />
                             <span>{post.readTime} phút đọc</span>
                         </div>
                         <button className="flex items-center gap-2 bg-orange-accent text-white px-6 py-3 rounded-lg font-bold uppercase text-sm tracking-wider hover:bg-orange-600 transition-all hover:gap-3 group">
                             Đọc Bài Viết
-                            <ArrowRight className="w-5 h-5" />
+                            <ArrowRightIcon className="w-5 h-5" />
                         </button>
                     </div>
                 </div>
@@ -82,6 +82,13 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
                         <div className="relative w-full h-full bg-gradient-to-br from-light-primary/5 to-light-primary/10 backdrop-blur-sm rounded-3xl border border-light-primary/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
                             <div className="text-9xl opacity-80 group-hover:scale-110 transition-transform duration-700">
                                 {post.illustration}
+                            </div>
+
+                            {/* Play Button Overlay */}
+                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-2xl transform scale-75 group-hover:scale-100 transition-all duration-500">
+                                    <PlayIcon className="w-10 h-10 text-orange-accent ml-1 fill-orange-accent" />
+                                </div>
                             </div>
                         </div>
 

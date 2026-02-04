@@ -1,0 +1,62 @@
+{
+    "enabledPlugins": {
+        "orchestrator@kuckit": true
+    },
+    "env": {
+        "ANTHROPIC_API_KEY": "sk-6d22c69248e74b48a49cfb80a5ccdb84",
+        "ANTHROPIC_BASE_URL": "http://127.0.0.1:8045"
+    },
+    "language": "vietnamese",
+    "model": "proxypal/gemini-claude-opus-4-5-thinking",
+    "permissions": {
+        "allow": [],
+        "deny": []
+    },
+    "agents": {
+        "defaults": {
+            "model": {
+                "primary": "proxypal/gpt-5.2",
+                "fallbacks": [
+                    "proxypal/gemini-3-pro-preview",
+                    "proxypal/gemini-claude-opus-4-5-thinking",
+                    "proxypal/gemini-3-flash-preview"
+                ]
+            }
+        }
+    },
+    "models": {
+        "providers": {
+            "proxypal": {
+                "baseUrl": "http://localhost:8317/v1",
+                "apiKey": "{proxypal-locall}",
+                "api": "openai-completions",
+                "models": [
+                    {
+                        "id": "gpt-5.2",
+                        "name": "GPT-5.2"
+                    },
+                    {
+                        "id": "gemini-3-pro-preview",
+                        "name": "Gemini 3 Pro"
+                    },
+                    {
+                        "id": "gemini-3-flash-preview",
+                        "name": "Gemini 3 Flash"
+                    },
+                    {
+                        "id": "gemini-3-pro-image-preview",
+                        "name": "Gemini 3 Pro Image"
+                    },
+                    {
+                        "id": "gemini-claude-opus-4-5-thinking",
+                        "name": "Claude Opus Thinking"
+                    },
+                    {
+                        "id": "gemini-claude-sonnet-4-5-thinking",
+                        "name": "Claude Sonnet Thinking"
+                    }
+                ]
+            }
+        }
+    }
+}

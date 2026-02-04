@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { MenuIcon, XIcon, ArrowRightIcon } from './ui/icons';
 import { Link, useLocation } from 'react-router-dom';
 import { usePopup } from '../context/PopupContext';
 
@@ -24,34 +24,36 @@ const Navbar: React.FC = () => {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute top-0 left-0 right-0 z-50 py-6 bg-transparent"
+            className="fixed top-4 left-4 right-4 z-50 flex justify-center"
         >
-            <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+            <div className="w-full max-w-7xl glass-card rounded-2xl px-6 py-4 flex items-center justify-between shadow-2xl shadow-aurora-purple/10 border border-white/10">
                 {/* Logo */}
-                <Link to="/" className="relative z-50 group">
-                    <div className="font-heading font-bold text-xl tracking-tight text-light-primary">
-                        LONG<span className="text-orange-accent">BEST</span>
+                <Link to="/" className="relative z-50 group flex items-center gap-2">
+                    <div className="font-heading font-bold text-xl tracking-tight text-white group-hover:text-glow-cyan transition-all duration-300">
+                        LONG<span className="gradient-text font-extrabold">BEST</span>
                     </div>
                 </Link>
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-8">
-                    <div className="flex items-center gap-1 bg-white/5 px-2 py-1 rounded-full border border-white/5 backdrop-blur-sm relative" onMouseLeave={() => setHoveredPath(null)}>
+                    <div className="flex items-center gap-1" onMouseLeave={() => setHoveredPath(null)}>
                         {navItems.map((item) => {
                             const isInternal = item.href.startsWith('/');
+                            const isActive = hoveredPath === item.href;
+
                             return (
                                 isInternal ? (
                                     <Link
                                         key={item.name}
                                         to={item.href}
                                         onMouseEnter={() => setHoveredPath(item.href)}
-                                        className={`relative px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-colors duration-200 z-10 ${hoveredPath === item.href ? 'text-light-primary' : 'text-mid-gray hover:text-light-primary'}`}
+                                        className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 ${isActive ? 'text-white' : 'text-slate-400 hover:text-white'}`}
                                     >
                                         {item.name}
-                                        {hoveredPath === item.href && (
+                                        {isActive && (
                                             <motion.div
-                                                layoutId="navbar-pill"
-                                                className="absolute inset-0 bg-white/10 rounded-full -z-10"
+                                                layoutId="navbar-glow"
+                                                className="absolute inset-0 bg-white/10 rounded-lg -z-10 shadow-[0_0_15px_rgba(99,102,241,0.3)]"
                                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                             />
                                         )}
@@ -61,13 +63,13 @@ const Navbar: React.FC = () => {
                                         key={item.name}
                                         href={item.href}
                                         onMouseEnter={() => setHoveredPath(item.href)}
-                                        className={`relative px-4 py-2 text-xs font-semibold tracking-widest uppercase transition-colors duration-200 z-10 ${hoveredPath === item.href ? 'text-light-primary' : 'text-mid-gray hover:text-light-primary'}`}
+                                        className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 ${isActive ? 'text-white' : 'text-slate-400 hover:text-white'}`}
                                     >
                                         {item.name}
-                                        {hoveredPath === item.href && (
+                                        {isActive && (
                                             <motion.div
-                                                layoutId="navbar-pill"
-                                                className="absolute inset-0 bg-white/10 rounded-full -z-10"
+                                                layoutId="navbar-glow"
+                                                className="absolute inset-0 bg-white/10 rounded-lg -z-10 shadow-[0_0_15px_rgba(99,102,241,0.3)]"
                                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                             />
                                         )}
@@ -79,39 +81,42 @@ const Navbar: React.FC = () => {
 
                     <button
                         onClick={openEmailPopup}
-                        className="group flex items-center gap-2 px-5 py-2.5 bg-light-primary text-dark-primary text-xs font-bold tracking-widest uppercase rounded-lg hover:bg-orange-accent hover:text-light-primary hover:shadow-[0_0_15px_rgba(217,119,87,0.4)] transition-all duration-300"
+                        className="group flex items-center gap-2 px-6 py-2.5 bg-ai-purple/90 hover:bg-ai-purple text-white text-sm font-bold tracking-wide rounded-xl shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:scale-105 transition-all duration-300 border border-white/20"
                     >
                         <span>Start Building</span>
-                        <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                        <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </button>
                 </div>
 
                 {/* Mobile Trigger */}
                 <button
                     onClick={() => setIsMobileOpen(!isMobileOpen)}
-                    className="md:hidden relative z-50 p-2 text-light-primary hover:text-orange-accent transition-colors"
+                    className="md:hidden relative z-50 p-2 text-white hover:text-ai-purple transition-colors"
                 >
-                    {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
+                    {isMobileOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
                 </button>
 
                 {/* Mobile Menu Overlay */}
                 <AnimatePresence>
                     {isMobileOpen && (
                         <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
+                            initial={{ opacity: 0, scale: 0.95, y: -20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: -20 }}
                             transition={{ duration: 0.2 }}
-                            className="fixed inset-0 z-40 bg-dark-primary pt-24 px-6 md:hidden"
+                            className="absolute top-full left-0 right-0 mt-4 glass-card rounded-2xl p-6 md:hidden border border-white/10 shadow-2xl shadow-aurora-purple/20 overflow-hidden"
                         >
-                            <div className="flex flex-col gap-6">
+                            {/* Gradient Background for Menu */}
+                            <div className="absolute inset-0 bg-aurora-dark/90 backdrop-blur-xl -z-10" />
+
+                            <div className="flex flex-col gap-4 relative z-10">
                                 {navItems.map((item) => (
                                     item.href.startsWith('/') ? (
                                         <Link
                                             key={item.name}
                                             to={item.href}
                                             onClick={() => setIsMobileOpen(false)}
-                                            className="text-2xl font-heading font-medium text-light-primary hover:text-orange-accent transition-colors border-b border-white/5 pb-4"
+                                            className="text-lg font-medium text-slate-300 hover:text-white hover:pl-2 transition-all border-b border-white/5 pb-3"
                                         >
                                             {item.name}
                                         </Link>
@@ -120,7 +125,7 @@ const Navbar: React.FC = () => {
                                             key={item.name}
                                             href={item.href}
                                             onClick={() => setIsMobileOpen(false)}
-                                            className="text-2xl font-heading font-medium text-light-primary hover:text-orange-accent transition-colors border-b border-white/5 pb-4"
+                                            className="text-lg font-medium text-slate-300 hover:text-white hover:pl-2 transition-all border-b border-white/5 pb-3"
                                         >
                                             {item.name}
                                         </a>
@@ -131,7 +136,7 @@ const Navbar: React.FC = () => {
                                         setIsMobileOpen(false);
                                         openEmailPopup();
                                     }}
-                                    className="mt-4 flex items-center justify-center gap-2 w-full py-4 bg-orange-accent text-light-primary font-bold uppercase tracking-widest rounded-lg"
+                                    className="mt-4 flex items-center justify-center gap-2 w-full py-4 bg-gradient-to-r from-ai-purple to-aurora-purple text-white font-bold uppercase tracking-widest rounded-xl shadow-lg shadow-ai-purple/30"
                                 >
                                     Start Building
                                 </button>

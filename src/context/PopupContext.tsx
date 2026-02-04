@@ -61,10 +61,10 @@ export const PopupProvider: React.FC<PopupProviderProps> = ({ children }) => {
         }));
     };
 
-    const handleEmailSubmit = async (email: string, source: string = 'Popup') => {
+    const handleEmailSubmit = async (email: string) => {
         try {
-            // Submit email to Google Sheets
-            const result = await submitEmailToGoogleSheets(email, source);
+            // Submit email to Google Sheets (only Timestamp and Email)
+            const result = await submitEmailToGoogleSheets(email);
 
             if (result.status === 'success') {
                 // Show success toast

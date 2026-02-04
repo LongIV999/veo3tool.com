@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["../../../src/worker.ts"],
+  "sourceRoot": "/Users/admin/long best AI/ssskilll/web-builder/longbest-landing/.wrangler/tmp/deploy-ZvuC3E",
+  "sourcesContent": ["// @ts-nocheck\nexport default {\n    async fetch(request, env, ctx) {\n        const url = new URL(request.url);\n\n        // 1. Try to serve the request as a static asset\n        let response = await env.ASSETS.fetch(request);\n\n        // 2. If it's a 404 and looks like a route (not a file), serve index.html\n        if (response.status === 404 && !url.pathname.includes('.')) {\n            response = await env.ASSETS.fetch(new URL(\"/index.html\", request.url));\n        }\n\n        return response;\n    },\n};\n"],
+  "mappings": ";AACA,IAAO,iBAAQ;AAAA,EACX,MAAM,MAAM,SAAS,KAAK,KAAK;AAC3B,UAAM,MAAM,IAAI,IAAI,QAAQ,GAAG;AAG/B,QAAI,WAAW,MAAM,IAAI,OAAO,MAAM,OAAO;AAG7C,QAAI,SAAS,WAAW,OAAO,CAAC,IAAI,SAAS,SAAS,GAAG,GAAG;AACxD,iBAAW,MAAM,IAAI,OAAO,MAAM,IAAI,IAAI,eAAe,QAAQ,GAAG,CAAC;AAAA,IACzE;AAEA,WAAO;AAAA,EACX;AACJ;",
+  "names": []
+}

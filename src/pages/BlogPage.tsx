@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Filter } from 'lucide-react';
+import { ArrowLeftIcon, FilterIcon } from '../components/ui/icons';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -57,7 +57,7 @@ const BlogPage: React.FC = () => {
                             to="/"
                             className="inline-flex items-center gap-2 text-light-primary/70 hover:text-light-primary transition-colors group"
                         >
-                            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                            <ArrowLeftIcon className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                             <span>Quay lại trang chủ</span>
                         </Link>
                     </motion.div>
@@ -105,7 +105,7 @@ const BlogPage: React.FC = () => {
                         className="flex items-center gap-4 overflow-x-auto pb-2"
                     >
                         <div className="flex items-center gap-2 text-dark-primary/70 shrink-0">
-                            <Filter className="w-5 h-5" />
+                            <FilterIcon className="w-5 h-5" />
                             <span className="font-semibold">Lọc theo:</span>
                         </div>
                         <div className="flex gap-3">
@@ -113,11 +113,10 @@ const BlogPage: React.FC = () => {
                                 <button
                                     key={category}
                                     onClick={() => setSelectedCategory(category)}
-                                    className={`px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all border shrink-0 ${
-                                        selectedCategory === category
+                                    className={`px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all border shrink-0 ${selectedCategory === category
                                             ? categoryStyles[category]
                                             : 'bg-light-primary text-dark-primary/60 hover:bg-dark-primary/5 border-dark-primary/10'
-                                    }`}
+                                        }`}
                                 >
                                     {category === 'All' ? 'Tất cả' : category}
                                     {category !== 'All' && (

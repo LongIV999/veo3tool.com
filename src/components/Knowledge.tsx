@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Play, TrendingUp, BookOpen, Layers } from 'lucide-react';
+import { TrendingUpIcon, BookOpenIcon, LayersIcon } from './ui/icons';
 import FeaturedPost from './blog/FeaturedPost';
 import BlogList from './blog/BlogList';
 import { getFeaturedPost, getRegularPosts } from '../data/blogPosts';
+import PromptShowcase from './knowledge/PromptShowcase';
 
 const Knowledge: React.FC = () => {
     return (
@@ -148,11 +149,11 @@ const Knowledge: React.FC = () => {
 
                             <div className="category-meta">
                                 <span className="article-count">
-                                    <BookOpen className="w-4 h-4" />
+                                    <BookOpenIcon className="w-4 h-4" />
                                     45 Articles
                                 </span>
                                 <span className="difficulty">
-                                    <TrendingUp className="w-4 h-4" />
+                                    <TrendingUpIcon className="w-4 h-4" />
                                     All Levels
                                 </span>
                             </div>
@@ -191,11 +192,11 @@ const Knowledge: React.FC = () => {
 
                             <div className="category-meta">
                                 <span className="article-count">
-                                    <Layers className="w-4 h-4" />
+                                    <LayersIcon className="w-4 h-4" />
                                     38 Articles
                                 </span>
                                 <span className="difficulty">
-                                    <TrendingUp className="w-4 h-4" />
+                                    <TrendingUpIcon className="w-4 h-4" />
                                     Beginner-Advanced
                                 </span>
                             </div>
@@ -233,11 +234,11 @@ const Knowledge: React.FC = () => {
 
                             <div className="category-meta">
                                 <span className="article-count">
-                                    <BookOpen className="w-4 h-4" />
+                                    <BookOpenIcon className="w-4 h-4" />
                                     32 Articles
                                 </span>
                                 <span className="difficulty">
-                                    <TrendingUp className="w-4 h-4" />
+                                    <TrendingUpIcon className="w-4 h-4" />
                                     Intermediate-Pro
                                 </span>
                             </div>
@@ -254,109 +255,21 @@ const Knowledge: React.FC = () => {
                 </div>
             </div>
 
-            {/* Featured Content */}
-            <div className="featured-content">
+            {/* Viral Prompts Showcase - NEW */}
+            <div className="viral-showcase py-24 bg-zinc-900/50">
                 <div className="container mx-auto px-4">
-                    <div className="featured-content-wrapper">
-
-                        {/* Left: Latest Video Tutorial */}
-                        <motion.article
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="featured-video"
-                        >
-                            <div className="video-thumbnail">
-                                {/* Placeholder Image */}
-                                <div className="absolute inset-0 bg-gray-600 flex items-center justify-center text-gray-400">
-                                    Video Thumbnail
-                                </div>
-                                <div className="play-overlay">
-                                    <div className="play-button">
-                                        <Play className="w-8 h-8 ml-1 text-white fill-white" />
-                                    </div>
-                                </div>
-                                <div className="video-duration">15:32</div>
-                            </div>
-
-                            <div className="video-content">
-                                <div className="video-category-badge">
-                                    <span>🎬 VEO 3</span>
-                                </div>
-
-                                <h3 className="video-title">
-                                    5 Advanced Prompts Để Tạo Cinematic Shots
-                                </h3>
-
-                                <p className="video-description">
-                                    Học cách sử dụng camera angles, lighting modifiers, và
-                                    temporal keywords để tạo video professional-grade.
-                                </p>
-
-                                <div className="video-meta">
-                                    <span className="meta-date">2 days ago</span>
-                                    <span className="meta-separator">•</span>
-                                    <span className="meta-views">1.2K views</span>
-                                    <span className="meta-separator">•</span>
-                                    <span className="meta-level">Intermediate</span>
-                                </div>
-
-                                <a href="#" className="video-cta btn-primary bg-orange-accent text-white py-3 rounded-lg hover:bg-orange-600 transition-colors">
-                                    Xem Ngay →
-                                </a>
-                            </div>
-                        </motion.article>
-
-                        {/* Right: Quick Start Guide */}
-                        <motion.article
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="featured-guide"
-                        >
-                            <div className="guide-illustration flex items-center justify-center bg-gray-100 rounded-lg mb-6 h-64">
-                                {/* SVG Illustration Placeholder */}
-                                <span className="text-4xl">📘</span>
-                            </div>
-
-                            <div className="guide-content">
-                                <div className="guide-badge">
-                                    <span>📘 HƯỚNG DẪN</span>
-                                </div>
-
-                                <h3 className="guide-title">
-                                    Quick Start Guide:<br />
-                                    Tạo Video Đầu Tiên Trong 10 Phút
-                                </h3>
-
-                                <ul className="guide-steps">
-                                    <li>
-                                        <span className="step-number">01</span>
-                                        <span className="step-text">Setup account và API keys</span>
-                                    </li>
-                                    <li>
-                                        <span className="step-number">02</span>
-                                        <span className="step-text">Viết prompt đầu tiên</span>
-                                    </li>
-                                    <li>
-                                        <span className="step-number">03</span>
-                                        <span className="step-text">Generate và export video</span>
-                                    </li>
-                                    <li>
-                                        <span className="step-number">04</span>
-                                        <span className="step-text">Tối ưu cho social media</span>
-                                    </li>
-                                </ul>
-
-                                <a href="#" className="guide-cta btn-secondary border-2 border-dark-primary py-3 rounded-lg hover:bg-dark-primary hover:text-white transition-colors">
-                                    Tải PDF (2.5 MB) ↓
-                                </a>
-                            </div>
-                        </motion.article>
-
+                    <div className="text-center mb-16">
+                        <span className="text-orange-500 font-bold tracking-widest text-sm uppercase mb-4 block">Viral Learning Strategy</span>
+                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                            Công Thức <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Viral Content</span>
+                        </h2>
+                        <p className="text-neutral-400 max-w-2xl mx-auto text-lg">
+                            Copy & Paste công thức thành công từ 500+ creators hàng đầu.
+                            Không lý thuyết suông, chỉ có thực chiến.
+                        </p>
                     </div>
+
+                    <PromptShowcase />
                 </div>
             </div>
 

@@ -1,0 +1,14 @@
+node_modules
+.git
+.vscode
+.idea
+*.log
+.env.local
+.env.*.local
+.DS_Store
+.cache
+dist
+coverage
+*.md
+!README.md
+GOOGLE_SHEETS_SETUP.md

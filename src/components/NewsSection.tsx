@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Newspaper } from 'lucide-react';
+import { ArrowRightIcon, NewspaperIcon } from './ui/icons';
 import { Link } from 'react-router-dom';
 import FeaturedPost from './blog/FeaturedPost';
 import BlogList from './blog/BlogList';
@@ -27,7 +27,7 @@ const NewsSection: React.FC = () => {
                 >
                     {/* Section Label */}
                     <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-accent/10 via-orange-accent/5 to-transparent px-6 py-3 rounded-full mb-6 border border-orange-accent/20">
-                        <Newspaper className="w-5 h-5 text-orange-accent" />
+                        <NewspaperIcon className="w-5 h-5 text-orange-accent" />
                         <span className="text-sm font-bold uppercase tracking-widest text-orange-accent">
                             Tin Tức & Insights
                         </span>
@@ -83,7 +83,7 @@ const NewsSection: React.FC = () => {
                         className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-dark-primary to-dark-primary/90 text-light-primary font-bold uppercase text-sm tracking-wider rounded-xl hover:from-orange-accent hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group"
                     >
                         <span>Xem Tất Cả Bài Viết</span>
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </motion.div>
 

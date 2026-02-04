@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { format } from 'date-fns';
-import { X, CheckCircle, Circle, Trash2, Plus } from 'lucide-react';
+import { XIcon, CheckCircleIcon, CircleIcon, TrashIcon, PlusIcon } from '../ui/icons';
 import { useCalendar, type TaskType } from '../../context/CalendarContext';
 
 interface DayViewDialogProps {
@@ -41,7 +41,7 @@ const DayViewDialog = ({ date, isOpen, onClose }: DayViewDialogProps) => {
                         {format(date, 'EEEE, MMMM do')}
                     </h2>
                     <button onClick={onClose} className="text-text-secondary hover:text-white transition-colors">
-                        <X className="w-5 h-5" />
+                        <XIcon className="w-5 h-5" />
                     </button>
                 </div>
 
@@ -59,7 +59,7 @@ const DayViewDialog = ({ date, isOpen, onClose }: DayViewDialogProps) => {
                                 onClick={() => toggleTaskCompletion(task.id)}
                                 className={`transition-colors ${task.completed ? 'text-accent-orange' : 'text-text-secondary hover:text-white'}`}
                             >
-                                {task.completed ? <CheckCircle className="w-5 h-5" /> : <Circle className="w-5 h-5" />}
+                                {task.completed ? <CheckCircleIcon className="w-5 h-5" /> : <CircleIcon className="w-5 h-5" />}
                             </button>
 
                             <span className={`flex-1 text-sm ${task.completed ? 'opacity-50 line-through' : ''}`}>
@@ -79,7 +79,7 @@ const DayViewDialog = ({ date, isOpen, onClose }: DayViewDialogProps) => {
                                 onClick={() => deleteTask(task.id)}
                                 className="opacity-0 group-hover:opacity-100 text-text-secondary hover:text-red-500 transition-all ml-2"
                             >
-                                <Trash2 className="w-4 h-4" />
+                                <TrashIcon className="w-4 h-4" />
                             </button>
                         </div>
                     ))}
@@ -121,7 +121,7 @@ const DayViewDialog = ({ date, isOpen, onClose }: DayViewDialogProps) => {
                             disabled={!newTaskTitle.trim()}
                             className="flex items-center gap-1 bg-white text-black px-3 py-1.5 rounded text-xs font-bold font-mono tracking-wide hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            <Plus className="w-3 h-3" />
+                            <PlusIcon className="w-3 h-3" />
                             ADD
                         </button>
                     </div>

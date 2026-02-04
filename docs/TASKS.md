@@ -1,0 +1,32 @@
+# Project Tasks
+
+- [x] **TASK-001**: Set up Cloudflare Deployment
+  - **Completed**: 2026-01-23
+  - **Evidence**: `wrangler.jsonc` created, `package.json` script added, `docs/DEPLOYMENT.md` created.
+- [x] **TASK-002**: Verification of Cyber-Kinetic Effects
+  - **Completed**: 2026-01-23
+  - **Evidence**: Browser verification confirmed Spotlight Cursor, Grain Overlay, and Moving Border functionality. Production blank page issue fixed by correcting base path.
+- [x] **TASK-003**: Fix SPA Routing in Worker
+  - **Completed**: 2026-01-23
+  - **Evidence**: `src/worker.ts` updated to serve `index.html` on 404 errors for non-asset routes.
+- [x] **TASK-004**: Deploy SPA Routing Fix
+  - **Completed**: 2026-01-23
+  - **Evidence**: `npm run deploy` executed successfully. Cloudflare Worker updated.
+- [x] **TASK-005**: Restore WordPress Admin
+  - **Completed**: 2026-01-23
+  - **Evidence**: Restarted `veo3admin_wp` container, confirmed logs show server running. Database connection should be restored.
+- [x] **TASK-006**: Redesign Landing Page (High Conversion)
+  - **Completed**: 2026-01-23
+  - **Evidence**: Implementation of 8-section layout (Hero, Problem, Solution, Benefits, Social Proof, Pricing, FAQ, CTA) matching `landing-page` skill. Deployed to `veo3tool.com`.
+- [x] **TASK-007**: Google Sheets Integration
+  - **Completed**: 2026-01-23
+  - **Evidence**: `LeadForm.tsx` supports submission to GAS. `content/google-apps-script.js` template created.
+- [x] **TASK-008**: Video Thumbnail Integration
+  - **Completed**: 2026-01-24
+  - **Evidence**: `content/google-apps-script.js` updated with new headers. `src/services/googleSheets.ts` updated to send thumbnail and metadata.
+- [x] **TASK-009**: Play Button Overlay
+  - **Completed**: 2026-01-24
+  - **Evidence**: Implemented `play-overlay` in `BlogPost.tsx` and `FeaturedPost.tsx`. Confirmed existence in `Knowledge.tsx`.
+- [x] **TASK-010**: Production Deployment
+  - **Completed**: 2026-01-24
+  - **Evidence**: `pnpm run deploy` executed successfully. Uploaded 3 new assets to `longbest-landing`.
