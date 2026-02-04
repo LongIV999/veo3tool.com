@@ -39,17 +39,23 @@ Deploy Neo-Brutalist AI Video Tool landing page lên **Cloudflare Pages** với 
 **Build settings:**
 
 ```
-Framework preset: Vite
-Build command: pnpm build
+Framework preset: Vite (RẤT QUAN TRỌNG: Phải đổi từ Next.js sang Vite)
+Build command: npm run build
 Build output directory: dist
-Root directory: ssskilll/web-builder/longbest-landing
+Root directory: (Để trống hoặc điền chính xác đường dẫn đến repo)
 ```
 
 **Environment variables:**
 
 ```
-NODE_VERSION = 18
+NODE_VERSION = 20
 ```
+
+### 1.4 Giải quyết lỗi "Missing entry-point"
+Nếu bạn gặp lỗi `Missing entry-point to Worker script`, hãy đảm bảo:
+1. Bạn đã đổi **Framework preset** sang **Vite**.
+2. File `wrangler.json` đã được đẩy lên repo.
+3. Nếu vẫn lỗi, hãy chạy lệnh deploy tay: `npm run deploy`.
 
 ### 1.4 Deploy!
 
